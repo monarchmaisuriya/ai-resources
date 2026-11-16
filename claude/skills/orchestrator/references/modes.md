@@ -25,13 +25,97 @@ A round is one pass by a fresh reader or reviewer over a plan, a research brief,
 
 ## Rules
 
-1. Ask once per session, in the first reply that is not in the Answer lane: `Session mode: minimal (default) or maximal?` Start the work in `minimal` in that same reply; do not wait. If M's reply does not choose, the session mode stays `minimal`. If M answers `maximal` and the task is in the Research, Interrogate, or Plan lane, restart it from the maximal opening step; in any other lane, continue the task and follow the maximal column from the next step.
-2. Name it in every `Where we are` line as `session mode: minimal` or `session mode: maximal`. After the conversation is summarized, read it from the most recent `Where we are` line; if none is found, ask again (a subagent never does: rule 5).
-3. M may switch at any time. The switch applies from the next step. Work already finished in the old session mode is not redone unless M asks.
-4. A session mode never switches off a rule. In minimal, a change that is costly, hard to undo, or touches users, stored data, auth, or a public contract still gets the full plan or the full interrogation pass; the size is still the full one; every other row follows the minimal column.
-5. A fresh reader or any other subagent is not told the session mode in its prompt, never asks for it, and never settles it. It does one pass and reports. In maximal, a plan's Status line may read `full, because maximal session mode`; `references/rubric-plan.md` accepts that reason, so a full plan for a cheap change is not a finding.
-6. Maximal opening step. In maximal, run every step of the section "Maximal opening step" below, in the place that section's "Placement and precedence" part gives, and wait for M to confirm or change the proposed assignment.
-7. A setting a playbook needs that this file does not list: stop and ask M. Never guess a value.
+### 1. Session mode selection
+
+Ask M exactly once per session, in the first reply that is not in the Answer lane:
+
+`Session mode: minimal (default) or maximal?`
+
+- Begin working in minimal session mode immediately in that same reply. Never delay the task while waiting for M's answer.
+- If M does not explicitly select a session mode, the session remains in minimal.
+- If M selects maximal:
+  - In the Research, Interrogate, or Plan lane, restart the task from the maximal opening step (rule 6).
+  - In every other lane, continue the current task without restarting and apply the maximal column from the next step onward.
+- Do not ask the selection question again during the same session.
+
+### 2. Session mode persistence and identification
+
+Every `Where we are` line MUST explicitly identify the active session mode using exactly one of these formats:
+
+- `session mode: minimal`
+- `session mode: maximal`
+
+After a conversation summary, determine the active session mode exclusively from the most recent `Where we are` line.
+
+- If such a line exists, resume using its recorded session mode.
+- If no such line exists, ask M to select a session mode using the question in rule 1.
+- Exception: fresh readers and subagents must never ask for, infer, or establish the session mode. Rule 5 governs them.
+
+### 3. Switching session modes
+
+M may switch between minimal and maximal session mode at any point in the session.
+
+- A requested switch takes effect from the next step onward, not retroactively.
+- Preserve all work completed under the previous session mode.
+- Never repeat, expand, or redo completed work solely because the session mode changed.
+- Redo previously completed work only when M explicitly requests it or when the new session mode makes a previously completed result insufficient for the task.
+
+### 4. Mandatory rules and minimal-mode exceptions
+
+Session mode controls the depth of execution; it NEVER disables mandatory safeguards, requirements, or quality standards.
+
+In particular, minimal session mode does not permit abbreviated planning or interrogation when a change is:
+
+- Costly or difficult to reverse.
+- Difficult to undo.
+- User-facing or affects other users.
+- Related to stored data or data integrity.
+- Related to authentication, authorization, or security.
+- Capable of changing a public interface, API, or other public contract.
+
+For any such change, perform the full planning or full interrogation process, regardless of session mode.
+
+Additionally:
+
+- The required plan or interrogation retains its full prescribed size and depth.
+- Do not reduce mandatory scope, validation, or safeguards to satisfy minimal session mode.
+- For all other cases, follow the minimal column.
+
+In short: minimal session mode reduces unnecessary work, not necessary rigor.
+
+### 5. Fresh readers and subagents
+
+A fresh reader or any other subagent operates independently of the session mode.
+
+Its instructions MUST NOT:
+
+- Disclose or communicate the active session mode.
+- Ask M to choose a session mode.
+- Attempt to determine, infer, or establish the session mode.
+- Change or override the session mode.
+
+Instead, the subagent must:
+
+1. Perform one independent pass over its assigned task.
+2. Apply the requirements relevant to that task.
+3. Report its findings and results.
+
+Maximal-mode planning exception: when the main agent is operating in maximal session mode, a plan's `Status` line MAY state `full, because maximal session mode`. The `references/rubric-plan.md` rubric explicitly accepts this justification. Consequently, a full plan for an otherwise inexpensive change MUST NOT be reported as a finding or violation when maximal session mode is the reason for its scope.
+
+### 6. Maximal opening step
+
+When maximal session mode applies to a task in the Research, Interrogate, or Plan lane, run every step of the section "Maximal opening step" below, in the place that section's "Placement and precedence" part gives, and wait for M to confirm or change the proposed assignment.
+
+### 7. Missing playbook settings
+
+If a playbook requires a setting, parameter, preference, constraint, or decision that this file does not explicitly define:
+
+- Stop at the point where that setting is required.
+- Ask M to provide or confirm its value.
+- Do not invent, assume, infer, or silently substitute a default.
+- Resume only after M provides the missing information.
+
+Governing principle: never guess a required setting.
 
 ## Maximal opening step
 
