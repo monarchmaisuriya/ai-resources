@@ -21,10 +21,12 @@ Match the depth to the cost of being wrong (principle 5).
 - **Short pass:** the idea is cheap and easy to undo.
   - Ask the 3 to 5 questions that matter most, from whichever of the four risks they fall under.
   - A follow-up that presses a vague answer does not count toward the 3 to 5.
-  - Then run both required rounds.
+  - Then run the closing rounds.
 - **Full pass:** the idea is costly, hard to undo, or touches users, stored data, auth, or a public contract. Cover all four risks below.
 
-Your first message puts the pass and the reason in its `Where we are` field, then asks the first question. M may change the pass at any time.
+In maximal session mode (`references/modes.md`), always use the full pass, and run the maximal opening step that file describes before the first question.
+
+Your first message (after the maximal opening step, when it applies) puts the pass and the reason in its `Where we are` field, then asks the first question. M may change the pass at any time.
 
 ## How to question
 
@@ -50,7 +52,9 @@ Your first message puts the pass and the reason in its `Where we are` field, the
 | Feasibility | Can we build and run it? | existing systems and models; data flow and state; failure modes; quality needs as numbers (how fast, how reliable, how many); auth and permissions; migrations and breaking changes; testing; unconsidered inputs and states, load, bad data, concurrency; rollback and recovery; how it will be watched in production; misuse by other developers (can whoever controls config switch safety off? is copying the first example safe? can a caller swap arguments with no error?); for LLM or agent features, what can untrusted content make the tools do? |
 | Viability | Can we live with it? | the cost: effort and time budget, risk, blast radius, and whether it can be undone; what gets cut first; cross-team dependencies; rollout and flags; long-term maintenance; legal, privacy, and personal data; the simplest thing that could work; the forces pushing for the change and against it, with evidence for each; whether a cheaper version would deliver most of the impact |
 
-## Two required rounds before stopping
+## Closing rounds before stopping
+
+Run the closing rounds `references/modes.md` lists for the session mode.
 
 1. **Premortem.** "Assume this shipped and failed six months from now. What went wrong?"
    - Ask M for their reasons, add your own, and question the top two.
@@ -88,7 +92,7 @@ When the challenged assumption depends on a flow, hierarchy, sequence, or causal
 
 1. Every risk in scope is explored: all four for a full pass; for a short pass, the risks your 3 to 5 questions touched.
 2. Every answer is concrete and defensible.
-3. The premortem and the riskiest-assumption round are done.
+3. The closing rounds `references/modes.md` lists for the session mode are done.
 4. Full pass only: you cannot think of another meaningful question.
 5. M's reasoning is internally consistent.
 6. Full pass only: the questions asked covered all five types:

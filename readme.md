@@ -8,6 +8,7 @@ A collection of reusable instructions, skills, and working playbooks for AI-assi
 - **[Orchestrator skill](claude/skills/orchestrator/SKILL.md)** — an index that routes requests to the relevant playbook rather than loading every reference at once.
 - **[Reference library](claude/skills/orchestrator/references/)** — principles, design checklists, review rubrics, testing guidance, and a decision-record template.
 - **[Security audit resources](claude/skills/orchestrator/references/security-audit/README.md)** — audit workflows, domain-specific references, report schemas, and validation scripts.
+- **[Session modes](claude/skills/orchestrator/references/modes.md)**: a once-per-session choice between `minimal` (the default) and `maximal` that sets how much detail and how many check rounds the playbooks spend.
 
 ## Working playbooks
 

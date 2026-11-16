@@ -24,7 +24,7 @@ A plan is executable when another engineer can follow it without inventing requi
 11. **User and outcome:** The plan names who it is for, what they are trying to do, what they use today, one success metric, one guardrail metric (a number that must not get worse), and the date the result will be checked.
 12. **Quality targets and tradeoffs:** Non-functional needs (speed, reliability, security, cost) are written as measurable scenarios. Each option says which quality it gives up. A change that crosses a trust boundary has a threat model.
 
-13. **Cost and scope:** The plan states the effort and the time budget, what gets cut first, the risk, the blast radius, and whether the change can be undone. The plan's size fits that cost: a light plan is a short plan for a cheap, easily undone change, and a full plan is everything else.
+13. **Cost and scope:** The plan states the effort and the time budget, what gets cut first, the risk, the blast radius, and whether the change can be undone. The plan's size fits that cost: a light plan is a short plan for a cheap, easily undone change, and a full plan is everything else. A full plan chosen because the Status line names maximal session mode fits its cost.
 
 Criteria 11 and 12 apply only when the plan changes something with users or a live system; otherwise the verdict is `n/a` with the reason. Criterion 13 applies in full to every full plan; for a light plan, check only that the light size fits the cost.
 

@@ -5,7 +5,7 @@ description: Index of M's seven working playbooks. Loads the one playbook that m
 
 # Orchestrator
 
-This file is an index. It holds no rules of its own beyond the four below. Every working rule lives in a playbook.
+This file is an index. It holds no rules of its own beyond the five below. Every working rule lives in a playbook or in a file listed below.
 
 ## How to use it
 
@@ -13,6 +13,7 @@ This file is an index. It holds no rules of its own beyond the four below. Every
 2. Read the whole playbook file before the first action. Never read part of it, never work from memory of it, and read it again after the conversation has been summarized.
 3. Read the other files a playbook names when it tells you to, at the path it gives: in full, unless the playbook names a section.
 4. Every path in a playbook is relative to this folder (the folder that holds this file). When a playbook hands a file to a subagent, turn the path into an absolute one, and tell the subagent the absolute path of this folder as the base for every `references/` path it will meet.
+5. Before the first playbook of a session, read `references/modes.md` in full and settle the session mode as it says. A subagent skips this rule.
 
 ## Playbooks
 
@@ -28,10 +29,11 @@ This file is an index. It holds no rules of its own beyond the four below. Every
 
 ## Files the playbooks use
 
-Do not read these up front. A playbook names the ones it needs.
+Do not read these up front, except `references/modes.md`, which rule 5 reads first. A playbook names the others it needs.
 
 | File | Used by |
 | --- | --- |
+| `references/modes.md` | all lanes (settled by rule 5) |
 | `references/ten-principles.md` | all seven |
 | `references/misuse-patterns.md` | plan, build, diagnose, review |
 | `references/rubric-plan.md` | plan, review |

@@ -30,6 +30,8 @@ Size the plan to the cost of being wrong (principle 5).
 - **Light plan:** the change is cheap, easy to undo, touches no public contract, no stored data, and no auth, and changes nothing for users or on a live system. Its Design section also says how to undo the change. Use six content sections only: Context and problem, Goals / Non-goals, What is true today, Design, Acceptance criteria, Parts. The three record sections (Independent check, Changes made, Open questions) are in every plan.
 - **Full plan:** everything else. Use every section.
 
+In maximal session mode (`references/modes.md`), always use the full plan, and run the maximal opening step that file describes before the first action.
+
 State the size and the reason on the Status line. When unsure, use the full plan. In a light plan, `nothing found` assumptions are listed under What is true today, a decision M has not made goes under Open questions, decisions already made and options rejected go under Design, and the briefing leaves out the fields whose sections the plan does not have.
 
 ## Plan file
@@ -84,13 +86,11 @@ The session that wrote a plan knows things the plan does not say, so it cannot s
 2. **What it returns.** In its own words, what the plan proposes and how the current system works; then a verdict (pass, violation, or n/a, with evidence) for each rubric criterion; then one finding per violation with a severity: `blocking` (can cause wrong behavior, data loss, or a decision on false claims), `must-verify` (plausible and important; one check settles it), or `note` (usable now; a bounded improvement).
 3. **Compare.** You, the author, compare the reader's account of what the plan proposes with M's request. A difference is a blocking finding.
 4. **Answer every finding.** First try to refute each blocking finding: re-read every location it cites and look for the control that would prevent it. If it survives, it stands. Then give each finding exactly one of: `fix` (valid; name the edit), `contest` (wrong, with proof the reader could have read; M decides), or `decline` (notes only). Never contest a finding that says the reader could not follow something: if a cold reader could not, M cannot either.
-5. **Re-check.** If round 1 had any blocking or must-verify finding answered `fix`, apply the fixes, then launch a new fresh reader with the same inputs and nothing from the first round. The plan body never names a round or a reader; it cites `file:line`, a command and its output, or a doc link.
-6. **Stop** when a round has no blocking or must-verify finding with a `fix` response, or after 2 rounds (the first check is round 1).
+5. **Re-check.** If round 1 had any blocking or must-verify finding answered `fix`, and the round limit in `references/modes.md` allows another round, apply the fixes, then launch a new fresh reader with the same inputs and nothing from the first round. The plan body never names a round or a reader; it cites `file:line`, a command and its output, or a doc link.
+6. **Stop** when a round has no blocking or must-verify finding with a `fix` response, or at the round limit for the session mode in `references/modes.md` (the first check is round 1).
    - Whenever the check stops, apply the note-level `fix` responses.
-   - At the limit, do not apply the blocking and must-verify fixes: leave those open with their proposed edit, so nothing serious goes in unchecked.
-   - Then ask M: present as it stands, run one more round, or go back to drafting.
-   - If M chooses to present, the open fixes are listed in the briefing and applied only when M approves them.
-7. **Record.** After the rounds stop and M has answered any question from step 6, write the result under `## Independent check`, starting with `independent` or `partial`. Use `present as is` when no blocking finding is open, `present after fixing N blocking` when N blocking findings are open and each has a proposed edit, or `do not implement until fixed` when any open blocking finding has no agreed fix; add `, N must-verify open` when that applies. Then the verdict per criterion; each finding with the response it got (`fix`, `contest`, or `decline`); every finding still open; and every contest waiting for M. A later `## Review` section, if any, follows this one.
+   - At the limit, handle blocking and must-verify fixes, and the question to M, as `references/modes.md` says for the session mode.
+7. **Record.** After the rounds stop and M has answered any question from step 6, write the result under `## Independent check`, starting with `independent` or `partial`. Use `present as is` when no blocking finding is open, `present after fixing N blocking` when N blocking findings are open and each has a proposed edit, or `do not implement until fixed` when any open blocking finding has no agreed fix; add `, N must-verify open` when that applies. Then the verdict per criterion; each finding with the response it got (`fix`, `contest`, or `decline`); every finding still open; and every contest waiting for M. A blocking or must-verify fix applied in the last allowed round is recorded as `Applied, not re-checked`, and the result line adds `, N applied not re-checked`. A later `## Review` section, if any, follows this one.
 
 ## After sign-off
 
@@ -130,6 +130,7 @@ Follow with short labeled paragraphs for:
 - **Risks:** <only what could change the decision>
 - **Check:** <N blocking, N must-verify>; independent or partial; one line if anything blocks.
 - **Open fixes:** one line per fix left open at the round limit, with its proposed edit; omit when none.
+- **Applied, not re-checked:** one line per blocking or must-verify fix applied in the last allowed round; omit when none.
 - **Contests:** one line per finding you contested, with your proof, for M to decide; omit when none.
 
 End with the H2 heading `## In plain terms` and these fields:

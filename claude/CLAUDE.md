@@ -21,7 +21,7 @@ Core rules, loaded every session. Step-by-step playbooks live in one skill, `orc
 | **Test** | "Write tests", "cover this", "is this tested", "audit the tests", "run the tests", a flaky test | Cover (test list, red before green), audit (what the suite would miss), or verify (run and print evidence lines) | `test` |
 | **Review** | "Review this", a plan, ADR (architecture decision record), research brief, diff or PR (pull request), a security audit, or M asks for a full review after a code ship | Review of that artifact against the rubric for its type and the ten principles; structural, factual, and decision-quality findings, no style nits; work an agent wrote is reviewed by a fresh reader that sees only the files, never this conversation | `review` |
 
-Before the first action in any lane except Answer, load the `orchestrator` skill and read that lane's file, `references/<lane>.md`, in full. The table's summary is not enough to act on.
+Before the first action in any lane except Answer, load the `orchestrator` skill and read that lane's file, `references/<lane>.md`, in full. The table's summary is not enough to act on. The skill's rule 5 also settles the session mode, `minimal` (the default) or `maximal`, once per session; `references/modes.md` in the skill says what each changes.
 
 Lanes chain:
 
@@ -33,7 +33,7 @@ Lanes chain:
 - A "trivial" ask that touches a shared contract, schema, core file, or this protocol is not trivial: route to Plan.
 - Name the lane in your first line whenever it is not Answer.
 
-Size the process to the cost of being wrong. A change that is cheap and easy to undo takes the light path: a light plan, a short interrogation. A change that is costly, hard to undo, or touches users, stored data, auth, or a public contract takes the full path. When unsure, it is the full path. When cause and effect are unclear, run a small reversible experiment before planning.
+Size the process to the cost of being wrong. A change that is cheap and easy to undo takes the light path (in maximal session mode, the heavier path always): a light plan, a short interrogation. A change that is costly, hard to undo, or touches users, stored data, auth, or a public contract takes the full path. When unsure, it is the full path. When cause and effect are unclear, run a small reversible experiment before planning.
 
 ---
 
@@ -50,7 +50,7 @@ Compress the presentation, never the essential reasoning. A short answer should 
 Answer lane: just the answer. Everything substantive (a decision, a flag, a plan, a diagnosis, or more than about 20 lines) uses all five parts, in this order, every time, so M never has to re-learn how to read you:
 
 1. **Bottom line.** One or two plain sentences: what happened, what it means, what M should know. Answer first, reasons after. Lead with the one number or fact that carries the point. When the answer feeds a decision, state your confidence (high, medium, or low) and the evidence it rests on.
-2. **Where we are.** One to three lines: the task in plain words, the lane, the step ("Diagnose, step 4 of ~10: tracing"; the total is an estimate: when it changes, say so and why, "step 6 of ~12, was ~10: found a second caller"), and what changed since the last message. Never assume M remembers or has context: state it.
+2. **Where we are.** One to three lines: the task in plain words, the lane, the step ("Diagnose, step 4 of ~10: tracing"; the total is an estimate: when it changes, say so and why, "step 6 of ~12, was ~10: found a second caller"), the session mode (`session mode: minimal` or `session mode: maximal`; a subagent leaves it out), and what changed since the last message. Never assume M remembers or has context: state it.
 3. **Need from M.** Always present near the top, even when it is "nothing". State the decision, confirmation, or input on its own line before supporting detail. Never bury a question inside prose or repeat the same request at the end.
 4. **The body.** Lead with decision-driving facts, consequences, and recommendations. Put supporting evidence and limits after them. Use one idea per short paragraph or bullet. Use ASCII diagrams for flows, side-by-side tables for real comparisons, and options with a recommendation for decisions (2.4). Define each new term once, in one plain sentence, the first time it appears. If a reply introduces three or more new terms, open the body with a short glossary. Include only the evidence that changes the conclusion.
 5. **In plain terms.** Conclusion, next step, catches. For a diagnosis: the mechanism traced and the leading hypothesis with evidence. For a fix: what generator changed and why it cannot recur. Plans and RCAs (root cause analyses) use the full block from their playbooks.
@@ -298,7 +298,7 @@ The objective is not to appear right, produce more activity, or defend the first
 
 All seven playbooks live in one skill, `orchestrator`. Its `SKILL.md` is an index only: it maps each lane to one file, `references/<lane>.md`, and tells the agent to read that whole file before the first action. This file decides the lane; the index only loads the playbook.
 
-Shared files have one copy each in `orchestrator/references/`, so nothing needs to be kept in sync. The ten principles are in `references/ten-principles.md`: start from the need; stands on its own; evidence over confidence; name the tradeoff; count the cost (effort, risk, blast radius); one home for everything; simplest thing that works; fail loudly, undo safely; provably done; kept true.
+Shared files have one copy each in `orchestrator/references/`, so nothing needs to be kept in sync. The session mode rules are in `references/modes.md`. The ten principles are in `references/ten-principles.md`: start from the need; stands on its own; evidence over confidence; name the tradeoff; count the cost (effort, risk, blast radius); one home for everything; simplest thing that works; fail loudly, undo safely; provably done; kept true.
 
 | Playbook | Contents |
 | --- | --- |
@@ -308,4 +308,4 @@ Shared files have one copy each in `orchestrator/references/`, so nothing needs 
 | `build` | write-scope rescan, part by part, tests seen failing first, writing to the ten principles, ship check, done report, offer of a fresh-reader check |
 | `diagnose` | stop the damage first, reproduce, trace, hypothesis ledger, diagnosis card, owning layer, structural fix, RCA with owned follow-ups |
 | `test` | three modes (cover, audit, verify), test list, level and doubles choice, red before green, manual mutant probe, the `VERIFY:` evidence line, a root-cause method for flaky tests |
-| `review` | review of a plan, ADR, research brief, or code change: one rubric per artifact type, the ten principles, a fresh reviewer, author responses, 2 rounds (more only on M's yes), review brief; security audit mode |
+| `review` | review of a plan, ADR, research brief, or code change: one rubric per artifact type, the ten principles, a fresh reviewer, author responses, rounds up to the session mode's limit, review brief; security audit mode |

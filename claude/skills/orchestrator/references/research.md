@@ -19,6 +19,8 @@ Match the effort to what the answer feeds (principle 5).
 - **Quick lookup:** a fact M will not build a decision on. Answer in chat with at least one primary source and one independent cross-check, both linked and tagged. It follows sourcing rules 4 to 6 only. No file, no time-box record, and no independent check.
 - **Research brief:** the answer feeds a decision, or the mode is explore options. Follow every step below.
 
+In maximal session mode (`references/modes.md`), always write a research brief, and run the maximal opening step that file describes before the first action.
+
 ## Steps
 
 1. Frame, known/unknown, then source per the rules below.
@@ -54,8 +56,8 @@ Ask whether to delete or keep the file once it is no longer needed: in find out,
 ## Sourcing rules (both modes)
 
 1. **Frame before searching.** The question in one sentence; the decision it feeds; the constraints; what "answered" looks like.
-   - **Time-box.** State it in your first message and record it under `## Method`. The default is 20 minutes of searching, then report even if incomplete. Measured trials (explore options, step 5) have their own stated budget outside this box.
-   - **Deep research.** When M asks for it, or the decision is costly to reverse, use a longer box (60 minutes unless M names one) and run independent threads in parallel: one fresh subagent per sub-question, each told to open and cite its sources.
+   - **Time-box.** State it in your first message and record it under `## Method`. The default is the search limit `references/modes.md` sets for the session mode, then report even if incomplete. Measured trials (explore options, step 5) have their own stated budget outside this box.
+   - **Deep research.** When M asks for it, the decision is costly to reverse, or the session mode is maximal, use the longer box in `references/modes.md` (or the one M names) and run independent threads in parallel: one fresh subagent per sub-question, each told to open and cite its sources.
    - **Stopping.** Stop gathering once more evidence would not change the decision, and say so under Risks / gaps in the briefing.
    - **Stuck.** Stop pushing on the same line and restate the question from zero.
 2. **Known / unknown table first.** What is verified from the codebase, what is unverified, what is unknown. It tells you where to look.
@@ -63,7 +65,7 @@ Ask whether to delete or keep the file once it is no longer needed: in find out,
 4. **Sources, in order of trust.** Primary: official docs, the spec, an RFC, the source code, the changelog, a peer-reviewed paper.
    - Secondary: engineering blogs from teams who run it in production; conference talks.
    - Tertiary: forums, Q&A sites, individual blogs.
-   - A research brief (either mode) needs at least 5 credible sources (primary or secondary; tertiary sources do not count toward the 5) with at least one primary; a quick lookup needs at least one primary source and one independent cross-check.
+   - A research brief (either mode) needs the minimum number of credible sources `references/modes.md` sets for the session mode (primary or secondary; tertiary sources do not count toward that minimum), including the number of primary sources it sets; state the minimum used under `## Method`; a quick lookup needs at least one primary source and one independent cross-check.
    - Never pad with weak links.
    - If fewer credible sources exist, say so and name what you could not verify.
    - Before forming a view, gather input from at least two unlike kinds of source, for example the docs and the people who run it.
@@ -103,7 +105,7 @@ Extra steps for this mode (steps 1 and 2 come before any searching):
 2. **Decompose from first principles.** What must be true for success. Sort every input into hard constraint / convention / assumption, then convert every assumption into a check: verified, or unverified with the check named. Tools: Socratic questions (clarify the claim, challenge the assumption, ask for evidence, consider alternatives, examine consequences) and Five Whys (ask "why?" of each answer in turn).
 3. Codebase, then web research, per the sourcing rules.
 4. **Widen the option set** with lateral moves: reframe (same goal, different mechanism), invert (what would make this worse), adjacent (how similar systems solve it), compete (hold several approaches at once). Generate options without judging them, and narrow only afterwards, with stated criteria; never mix the two phases. Add one deliberate constraint, such as "no new dependency", and see what option it forces.
-5. **Offer 2 to 4 concrete approaches**, each backed by evidence or a citation.
+5. **Offer 2 to 4 concrete approaches** (the session mode narrows this range: `references/modes.md`), each backed by evidence or a citation.
    - Include keeping things as they are when that is a real option. **Recommend one** with a one-line reason grounded in the research.
    - Every other approach raised along the way goes under Dropped approaches with the evidence that ruled it out; none silently disappears.
    - Include one option that delivers similar user impact for much less effort.
@@ -137,19 +139,17 @@ The session that wrote a brief knows things the brief does not say, so it cannot
 2. **What it returns.** In its own words, the question the brief answers and its conclusion; then a verdict (pass, violation, or n/a, with evidence) for each rubric criterion; then one finding per violation with a severity: `blocking` (the conclusion rests on a claim that is unsupported, contradicted, or stated more confidently than the evidence allows), `must-verify` (plausible and important; one check settles it), or `note` (usable now; a bounded improvement).
 3. **Compare.** You, the author, compare the reader's account with M's question. A difference is a blocking finding.
 4. **Answer every finding.** First try to refute each blocking finding: open the source it disputes and check the exact claim. If it survives, it stands. Then give each finding exactly one of: `fix` (valid; name the edit), `contest` (wrong, with proof the reader could have read; M decides), or `decline` (notes only). Never contest a comprehension gap: if the reader could not follow it, M cannot either.
-5. **Re-check.** If round 1 had any blocking or must-verify finding answered `fix`, apply the fixes, then launch a new fresh reader with the same inputs and nothing from the first round. The brief's body never names a round or a reader; it cites its sources.
-6. **Stop** when a round has no blocking or must-verify finding with a `fix` response, or after 2 rounds (the first check is round 1).
+5. **Re-check.** If round 1 had any blocking or must-verify finding answered `fix`, and the round limit in `references/modes.md` allows another round, apply the fixes, then launch a new fresh reader with the same inputs and nothing from the first round. The brief's body never names a round or a reader; it cites its sources.
+6. **Stop** when a round has no blocking or must-verify finding with a `fix` response, or at the round limit for the session mode in `references/modes.md` (the first check is round 1).
    - Whenever the check stops, apply the note-level `fix` responses.
-   - At the limit, do not apply the blocking and must-verify fixes: leave those open with their proposed edit.
-   - Then ask M: present as it stands, run one more round, or go back to drafting.
-   - If M chooses to present, the open fixes are listed in the briefing and applied only when M approves them.
-7. **Record.** After the rounds stop and M has answered any question from step 6, write the result under `## Independent check`. A finding is open when it is unfixed, whether its response was `fix` or `contest`.
+   - At the limit, handle blocking and must-verify fixes, and the question to M, as `references/modes.md` says for the session mode.
+7. **Record.** After the rounds stop and M has answered any question from step 6, write the result under `## Independent check`. A finding is open when it is unfixed, whether its response was `fix` or `contest`. A blocking or must-verify fix applied in the last allowed round is recorded as `Applied, not re-checked`, and the result line adds `, N applied not re-checked`.
    - `present as is`: no blocking finding is open.
    - `present after fixing N blocking`: N blocking findings are open and each has a proposed edit.
    - `do not use for a decision until fixed`: an open blocking finding has no proposed edit, or is contested and waiting for M.
    - Add `, N must-verify open` when that applies.
    - Then list the verdict per criterion, each finding with the response it got (`fix`, `contest`, or `decline`), every finding still open, and every contest waiting for M.
-8. **After M rules on a contest.** If M sides with the reader, apply the fix, run one more fresh reader, and record again. If M sides with you, mark the finding settled and record again.
+8. **After M rules on a contest.** If M sides with the reader, apply the fix, run one more fresh reader only if `references/modes.md` allows it for the session mode, and record again. If M sides with you, mark the finding settled and record again.
 
 ## Presenting research
 
@@ -174,6 +174,7 @@ Follow with short labeled paragraphs for:
 - **Risks / gaps:** <only what could change the call>
 - **Check:** <N blocking, N must-verify>; independent or partial; one line if anything blocks.
 - **Open fixes:** one line per fix left open at the round limit, with its proposed edit; omit when none.
+- **Applied, not re-checked:** one line per blocking or must-verify fix applied in the last allowed round; omit when none.
 - **Contests:** one line per finding you contested, with your proof, for M to decide; omit when none.
 
 End with the H2 heading `## In plain terms` and these fields:
