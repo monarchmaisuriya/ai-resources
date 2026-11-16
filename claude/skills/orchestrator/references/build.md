@@ -103,7 +103,7 @@ For a final ship, the `Need from M` field must include:
   - Launch one fresh `general-purpose` subagent with only these, as absolute paths: the repo path, the exact diff command, the plan path, and this skill's `references/ten-principles.md` and `references/misuse-patterns.md`. When there is no plan (a small change made outside one), first write a short description of what the change is for to a file and pass that in place of the plan path.
   - The diff command: in git, `git diff <base>` for tracked changes plus the list of new untracked files, where `<base>` is the commit that was checked out when the build began (nothing has been committed since). Outside git, `diff -ru <backup-folder> <project-folder>`.
   - It reports each place the diff breaks an acceptance criterion or a principle, with `file:line` and a severity: `blocking` (wrong behavior, data loss, or an unsafe change), `must-verify` (one check settles it), or `note`.
-  - Re-read every location a blocking finding cites before answering it. Fix what is valid, with a test, and run one more fresh reader on the fixed diff.
+  - Re-read every location a blocking finding cites before answering it. Fix what is valid, with a test, then follow the build row of `references/modes.md`: it says whether another reader runs and when M is asked.
   - Tell M what you fixed, and what you contested and why.
 - For a user-facing change: `The success metric is due to be checked on <date>. How do you want to be reminded?`
 - `Delete <plan path>, or keep it?`

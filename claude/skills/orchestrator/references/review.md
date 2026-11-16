@@ -89,14 +89,14 @@ The session that wrote an artifact knows things the artifact does not say, so it
   - M decides every contest; a contest waits in the brief under Decisions needed and does not keep the rounds going.
   - If a later reviewer raises a contested finding again, add that round to the same item instead of opening a new one.
   - Never contest a comprehension gap: if the reviewer could not follow it, a cold M cannot either.
-- **Re-check:** after the fixes are applied, a new fresh reviewer reviews the updated artifact.
+- **Re-check:** when the round limit in `references/modes.md` allows another round, the fixes are applied and a new fresh reviewer reviews the updated artifact.
   - It gets nothing from the earlier round.
   - Text in the artifact outside its review section cites primary sources only (`file:line`, command and output, doc link) and never names a round or a reviewer.
   - After the rounds stop, and not before, the brief goes at the end of a plan, research brief, or decision record under an H2 heading `## Review`, so no reviewer ever reads an earlier brief; for code, and for a decision record that is already accepted, the brief goes to M in chat.
   - Apart from the author's own `fix` edits, this is the only edit a review makes.
-- **Stop:** when a round has no blocking or must-verify finding with a `fix` response, or after 2 rounds (the first review is round 1).
+- **Stop:** when a round has no blocking or must-verify finding with a `fix` response, or at the round limit for the session mode in `references/modes.md` (the first review is round 1).
   - Notes answered `fix` are applied in every round, including the last.
-  - At the limit, leave blocking and must-verify fixes open, each with its proposed edit; then ask M one question: stop and report as it stands, run one more round (which applies the open fixes first; M is asked again after each extra round), or have the artifact redrafted before any further review.
+  - At the limit, handle blocking and must-verify fixes, and the question to M, as `references/modes.md` says for the session mode.
 
 ## The ten principles
 
@@ -247,7 +247,7 @@ Keep the brief short by removing repetition, not evidence:
 - Keep a field to one sentence unless separate evidence observations require bullets.
 - Preserve every material fact, limitation, verdict, and decision. There is no word limit when distinct evidence requires space.
 
-Choose the typed bottom line: code uses `ship as is`, `ship after fixing N blocking`, or `do not ship`; plan uses `present as is`, `present after fixing N blocking`, or `do not implement until fixed`; research uses `present as is`, `present after fixing N blocking`, or `do not use for a decision until fixed`; ADR uses `accept as is`, `accept after fixing N blocking`, or `do not accept` (for a record already accepted: `keep as is`, `supersede to fix N blocking`, or `supersede`); a security audit uses `no blocking findings`, `fix N blocking before release`, or `do not release`. When no blocking finding is open but a must-verify finding is, use the first choice and add `, N must-verify open`.
+Choose the typed bottom line: code uses `ship as is`, `ship after fixing N blocking`, or `do not ship`; plan uses `present as is`, `present after fixing N blocking`, or `do not implement until fixed`; research uses `present as is`, `present after fixing N blocking`, or `do not use for a decision until fixed`; ADR uses `accept as is`, `accept after fixing N blocking`, or `do not accept` (for a record already accepted: `keep as is`, `supersede to fix N blocking`, or `supersede`); a security audit uses `no blocking findings`, `fix N blocking before release`, or `do not release`. When no blocking finding is open but a must-verify finding is, use the first choice and add `, N must-verify open`. When a blocking or must-verify fix was applied in the last allowed round, add `, N applied not re-checked`.
 
 ## Review: <artifact type>: <what was reviewed>
 
@@ -266,7 +266,7 @@ Include this section only when M must act. Use a numbered list. Each item names 
 
 ### Findings
 
-List one finding per violation. Order findings by `blocking`, then `must-verify`, then `note`. Use the finding format below.
+List one finding per violation. Order findings by `blocking`, then `must-verify`, then `note`. Use the finding format below. A blocking or must-verify finding whose fix was applied in the last allowed round is marked `Applied, not re-checked`.
 
 ### Criterion coverage
 

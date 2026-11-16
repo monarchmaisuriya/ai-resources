@@ -25,7 +25,7 @@ Research is decision-grade when its conclusion is traceable, reproducible, and n
 10. **Recommendation proportionality:** The recommendation follows from the evidence, addresses tradeoffs, and names conditions that would change it. Research may conclude that evidence is insufficient.
 11. **Reproducibility:** Another reviewer can repeat the search, calculation, experiment, or comparison using the recorded sources and method.
 
-Do not use source count as a substitute for quality. For any research brief, expect at least 5 credible sources with at least one primary. If fewer are available, require the brief to state that limitation.
+Do not use source count as a substitute for quality. For any research brief, expect at least the minimum the brief's `## Method` section states, and never fewer than 5 credible sources with at least one primary. If fewer are available, require the brief to state that limitation.
 
 ## Classify the research before reviewing
 
