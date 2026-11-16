@@ -34,6 +34,7 @@ Do not read these up front, except `references/modes.md`, which rule 5 reads fir
 | File | Used by |
 | --- | --- |
 | `references/modes.md` | all lanes (settled by rule 5) |
+| `references/maximal-opening-step.md` | research, interrogate, plan (maximal session mode only; named by rule 6 of `references/modes.md`) |
 | `references/ten-principles.md` | all seven |
 | `references/misuse-patterns.md` | plan, build, diagnose, review |
 | `references/rubric-plan.md` | plan, review |
