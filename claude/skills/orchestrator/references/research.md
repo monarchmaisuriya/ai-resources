@@ -75,7 +75,7 @@ Ask whether to delete or keep the file once it is no longer needed: in find out,
 6. **Cite inline** at the point of the claim (markdown link). End with a Sources list (title plus link). No source, no claim.
 7. **Translate to us.** What this means for our code, with file paths, verified.
 
-Add one short ASCII diagram when it materially clarifies a flow, hierarchy, sequence, or causal chain in the answer or recommendation. Mark the important transition. Skip it for simple facts and short two-step explanations. Keep side-by-side comparisons as tables.
+Add one short diagram (its form comes from the visual ladder in core section 2.4) when it materially clarifies a flow, hierarchy, sequence, or causal chain in the answer or recommendation. Mark the important transition. Skip it for simple facts and short two-step explanations. Keep side-by-side comparisons as tables.
 
 ## Mode: find out
 
@@ -89,7 +89,7 @@ Follow with these H3 sections:
 
 - **What I found:** grouped by theme; one idea per bullet; each bullet tagged and linked.
 - **Side by side:** only when comparing; use a table with aspect, each option, which wins here, and evidence.
-- **How it fits together:** when materially useful, an ASCII diagram of the relevant flow, hierarchy, sequence, or causal chain.
+- **How it fits together:** when materially useful, a diagram of the relevant flow, hierarchy, sequence, or causal chain.
 - **What this means for our code:** affected codebase parts with file paths, each tagged.
 - **Confidence and gaps:** use a table with claim, tag, strength grade, source tier, and what would raise confidence.
 - **Answers ruled out:** one line each: a candidate answer you checked and rejected, and the evidence that ruled it out. Omit when none.
@@ -124,7 +124,7 @@ Follow with these H3 sections:
 - **What must be true:** hard constraints tagged verified, conventions, and open checks tagged unverified with the check named.
 - **Options:** one comparison table. Give each option a column. Use rows for how it works, codebase fit, what it gives up, what it costs (effort, money, risk), blast radius and whether it can be undone, failure conditions, evidence with its strength grade, and completeness x/10 (10 covers every edge case, 7 the happy path only, 3 a shortcut that defers real work).
 - **Dropped approaches:** one line each: the approach, where it came from, and the evidence that ruled it out. Omit when none were dropped.
-- **Flow of the recommended option:** an ASCII diagram when it materially clarifies how the option works.
+- **Flow of the recommended option:** a diagram when it materially clarifies how the option works.
 - **Recommendation:** `RECOMMENDATION: <option> because <one reason>`.
 - **Confidence and gaps:** how sure the recommendation is, what was not verified, and what would change it.
 - **Sources:** title, link, version, and publication date, one per line; for a fact the answer rests on, also the sentence that supports it.

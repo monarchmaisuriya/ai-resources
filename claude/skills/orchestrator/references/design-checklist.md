@@ -64,7 +64,7 @@ Applies when the change crosses a trust boundary: new input from users or other 
 
 Answer four questions:
 
-1. What are we working on? One ASCII data-flow diagram with the trust boundaries marked.
+1. What are we working on? One data-flow diagram (its form comes from the visual ladder in core section 2.4) with the trust boundaries marked.
 2. What can go wrong? Walk each boundary for: pretending to be someone else, tampering with data, denying an action, leaking information, denying service, and gaining privileges.
 3. What will we do about it? One mitigation per threat, or an accepted risk with M's name on it.
 4. Did we do a good enough job? Each mitigation becomes a test in Parts.
@@ -76,7 +76,7 @@ Applies when more than one component changes or a new component is added.
 - **Context:** the system as one box, with the people and outside systems it talks to.
 - **Containers:** the deployable pieces inside it (services, databases, queues) and how they talk.
 
-Both are ASCII diagrams with the changed pieces marked `<-- changed` or `<-- new`. Skip both for a short two-step change that a sentence explains.
+Both are diagrams with the changed pieces marked `changed` or `new`. Skip both for a short two-step change that a sentence explains.
 
 ## 7. Watching it in production
 

@@ -17,7 +17,7 @@ Every plan is written against the ten principles in `references/ten-principles.m
 3. **Choose the size** (light or full, below), then write the plan file from the template. Read `references/rubric-plan.md` first and write so the plan would pass it. Write for a reader who never saw this conversation: every decision, constraint, and rejected option the plan relies on is in the file. Before writing a full plan, state the intended direction in three lines and get M's nod. That three-line direction is the only rough version M sees; the plan itself reaches M only after the check.
 4. **Run the independent check without being asked** (below). Never present an unchecked plan.
 5. **Present the chat briefing** (template below), then the In plain terms block.
-   - Do not paste the plan file, the parts checkboxes, the full check result, or long ASCII or tables into chat.
+   - Do not paste the plan file, the parts checkboxes, the full check result, or long diagram source or tables into chat.
    - Link the file.
    - Wait for explicit sign-off ("yes, exactly", "approved", "go", "implement", "ship it"); "looks good" or silence is not sign-off.
    - Then set Status to `approved`, set any decision record M has now decided to `accepted`, and follow "After sign-off" (below).
@@ -50,7 +50,7 @@ Then add these H2 sections in order:
 
 - **Context and problem:** who this is for, what they are trying to do, and what they use today; what M sees today, in plain words; why it matters. State the function the solution must perform before naming any form it takes. State the constraints the solution must respect.
 - **Goals / Non-goals:** observable outcomes and explicit exclusions. One success metric, one guardrail metric (a number that must not get worse), and the date the result will be checked after launch. For a change with no users and no live system, write `metrics: n/a` and the reason. In non-goals, name the tempting near-misses (work you would enjoy and could defend) and forbid part-time progress on them.
-- **What is true today:** current behavior with every claim tagged by verified file evidence. Add an ASCII diagram when a flow, hierarchy, sequence, or causal chain has several meaningful steps; otherwise use one concise statement.
+- **What is true today:** current behavior with every claim tagged by verified file evidence. Add a diagram (its form comes from the visual ladder in core section 2.4) when a flow, hierarchy, sequence, or causal chain has several meaningful steps; otherwise use one concise statement.
 - **Options considered:** a table with one column per option and rows for how it works, why it fits our code, what it gives up, what it costs (effort, money, risk), failure conditions, evidence, and completeness x/10 (10 covers every edge case, 7 the happy path only, 3 a shortcut that defers real work). Follow it with `RECOMMENDATION: <option> because <one reason>`. Before proposing a rewrite or a new component, list what the existing one already handles and what it quietly depends on; rebuild only when the existing form cannot meet the required function, otherwise improve it. If good options are not obvious, rewrite the problem statement instead of adding options.
 - **Decision:** what we will do, the structural reason (why this fixes the cause and not a symptom), consequences, and rejected alternatives, each with the evidence that ruled it out.
   - Tag each decision with who made it: `[decided: M, chat YYYY-MM-DD]` or `[proposed: agent]`. A proposed decision that is costly to reverse is also listed under Open questions.
@@ -58,7 +58,7 @@ Then add these H2 sections in order:
   - Mark every assumption as an assumption, and carry it into every conclusion that depends on it.
 - **Cost and scope:** effort, and the time budget it must fit; what gets cut first if time runs out; risk (what could go wrong, how likely, how bad); blast radius (everything that reads, calls, or depends on what changes); and whether the change can be undone. Base the effort estimate on how similar past changes actually went (from git history or earlier plans), then adjust for this one; with no such record, label the estimate an assumption.
 - **Design:** target behavior, data changes, contracts touched, and migrations.
-  - When an ASCII diagram materially clarifies the target flow, hierarchy, sequence, or causal chain, include it and mark changed nodes.
+  - When a diagram materially clarifies the target flow, hierarchy, sequence, or causal chain, include it and mark changed nodes.
   - Then work through `references/design-checklist.md` and add each item that applies; write `n/a` with a reason for each one that does not (a light plan uses item 1 only).
   - When the design adds a config value, an auth or token flow, an outbound fetch, a dependency, a Kubernetes manifest, an IAM permission, or an LLM tool, also read the matching section of `references/misuse-patterns.md`.
   - Say how it behaves on empty and invalid input, retries, timeouts, partial failure, concurrent use, and recovery, or why each does not apply.

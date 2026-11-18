@@ -5,7 +5,7 @@ description: Index of M's seven working playbooks. Loads the one playbook that m
 
 # Orchestrator
 
-This file is an index. It holds no rules of its own beyond the five below. Every working rule lives in a playbook or in a file listed below.
+This file is an index. It holds no rules of its own beyond the six below. Every working rule lives in a playbook or in a file listed below.
 
 ## How to use it
 
@@ -14,6 +14,7 @@ This file is an index. It holds no rules of its own beyond the five below. Every
 3. Read the other files a playbook names when it tells you to, at the path it gives: in full, unless the playbook names a section.
 4. Every path in a playbook is relative to this folder (the folder that holds this file). When a playbook hands a file to a subagent, turn the path into an absolute one, and tell the subagent the absolute path of this folder as the base for every `references/` path it will meet.
 5. Before the first playbook of a session, read `references/modes.md` in full and settle the session mode as it says. A subagent skips this rule.
+6. When a playbook says "core section" followed by a number, it means that section of M's core rules (`CLAUDE.md`, which the agent tool loads every session). If that file is not in your context, say so in your reply, and draw any diagram as ASCII in a code fence.
 
 ## Playbooks
 

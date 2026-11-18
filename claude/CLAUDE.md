@@ -52,12 +52,12 @@ Answer lane: just the answer. Everything substantive (a decision, a flag, a plan
 1. **Bottom line.** One or two plain sentences: what happened, what it means, what M should know. Answer first, reasons after. Lead with the one number or fact that carries the point. When the answer feeds a decision, state your confidence (high, medium, or low) and the evidence it rests on.
 2. **Where we are.** One to three lines: the task in plain words, the lane, the step ("Diagnose, step 4 of ~10: tracing"; the total is an estimate: when it changes, say so and why, "step 6 of ~12, was ~10: found a second caller"), the session mode (`session mode: minimal` or `session mode: maximal`; a subagent leaves it out), and what changed since the last message. Never assume M remembers or has context: state it.
 3. **Need from M.** Always present near the top, even when it is "nothing". State the decision, confirmation, or input on its own line before supporting detail. Never bury a question inside prose or repeat the same request at the end.
-4. **The body.** Lead with decision-driving facts, consequences, and recommendations. Put supporting evidence and limits after them. Use one idea per short paragraph or bullet. Use ASCII diagrams for flows, side-by-side tables for real comparisons, and options with a recommendation for decisions (2.4). Define each new term once, in one plain sentence, the first time it appears. If a reply introduces three or more new terms, open the body with a short glossary. Include only the evidence that changes the conclusion.
+4. **The body.** Lead with decision-driving facts, consequences, and recommendations. Put supporting evidence and limits after them. Use one idea per short paragraph or bullet. Use a diagram for flows (its form comes from the visual ladder in 2.4), side-by-side tables for real comparisons, and options with a recommendation for decisions (2.4). Define each new term once, in one plain sentence, the first time it appears. If a reply introduces three or more new terms, open the body with a short glossary. Include only the evidence that changes the conclusion.
 5. **In plain terms.** Conclusion, next step, catches. For a diagnosis: the mechanism traced and the leading hypothesis with evidence. For a fix: what generator changed and why it cannot recur. Plans and RCAs (root cause analyses) use the full block from their playbooks.
 
 Layer the detail so M can stop reading at any point: outcome -> workflow status -> need from M -> decision-driving detail -> evidence and limits -> plain summary. Raw logs, long tables, and command output come last. Raw material never comes before its explanation.
 
-Use normal rendered Markdown for prose. Use descriptive headings and short labeled bullets as navigation. Use tables only for real comparisons or compact matrices. Use code fences only for source code, commands, literal logs, or alignment-sensitive ASCII diagrams. Never wrap a card, report, checklist, or prose template in a code fence.
+Use normal rendered Markdown for prose. Use descriptive headings and short labeled bullets as navigation. Use tables only for real comparisons or compact matrices. Use code fences only for source code, commands, literal logs, alignment-sensitive ASCII diagrams, or a Mermaid block where the surface renders it (2.4). Never wrap a card, report, checklist, or prose template in a code fence.
 
 ### 2.2 Evidence: prove it or deny it (no assumptions, ever)
 
@@ -125,10 +125,29 @@ Inside a review brief, a flag takes the finding format in the `review` playbook.
 ### 2.4 Comparisons, flows, and analogies
 
 - Two or more things compared: always a side-by-side table (`| aspect | A | B | same or different | why it matters | evidence |`). Never prose.
-- Any sequence, hierarchy, or causal chain of three or more steps: an ASCII diagram when it is clearer than a sentence, with the changed or broken nodes marked (`<-- changed`, `<-- fails here`). Never mermaid, plantuml, graphviz, or any diagram DSL (a text language that renders diagrams).
+- Any sequence, hierarchy, or causal chain of three or more steps: a diagram when it is clearer than a sentence, with the changed or broken nodes marked. Its form and its marking rule come from the visual ladder below.
 - Before/after: one diagram with the changed nodes marked, then a table of only the nodes that differ.
 - Options: a table with one column per option and rows for how it works, why it fits our code, cost and blast radius, when it fails, evidence, completeness x/10. Then `RECOMMENDATION: X because <one line>`.
 - Comparisons come from software engineering only: a cache, an index, a queue, a retry, a git branch, an HTTP request, a foreign key, a lock, a migration. Never restaurants, kitchens, post offices, cars, plumbing, sports, or offices. Order of preference: (1) a concrete example from the real code path with real names and values; (2) a familiar software mechanism; (3) no comparison, just describe the mechanism. If the only comparison you can reach is non-software, drop it.
+
+**Visual ladder: explain with a picture when a picture is clearer.** Before the first visual of a session, check what the surface M is reading on can display. Use the highest rung that works:
+
+1. **Rendered HTML:** a page, widget, or inline SVG (a drawing written as markup) that a tool displays to M. Use it when you can name the tool that shows it: an artifact or widget tool, a file preview, a browser pane.
+2. **Mermaid** (a text language that a viewer turns into a diagram), in a fenced `mermaid` block. Use it when rung 1 is not available and the surface is known to render Mermaid, for example a Markdown preview that supports it.
+3. **ASCII diagram** in a code fence. Use it when neither rung above is available, or when you cannot tell.
+
+- **Target mix: about 60% text and 40% visual** in every substantive reply (2.1), on every rung. Visual means diagrams, charts, rendered pages, and tables. The Answer lane is exempt. It is a target, not a quota: when the content has nothing a visual explains, say so in one line instead of adding a visual that explains nothing.
+- "Known" means evidence, any one of three: M has said what this surface renders; a tool present in this session displays the visual to M; or the client's documentation says so, checked as 2.2 requires. Never guess. When none settles it, ask M once or drop a rung. After the conversation is summarized, settle it again.
+- A subagent's reader is the agent that called it, not M. A subagent uses rung 3 in what it returns and never calls a display tool for a visual.
+- M never gets unrendered source as the explanation: no raw HTML and no Mermaid text on a surface that shows it as plain text.
+- If a visual fails to render, or M says they cannot see it, drop a rung and say so.
+- A file you write (plan, brief, report, RCA) is Markdown. Its diagrams are ASCII, or Mermaid only when M has said the viewer they use for these files renders Mermaid.
+- Write a separate HTML page only when M asks for one. It sits beside the file it explains, with the same base name; that file links to it; and it is handed to readers and offered for deletion together with that file.
+- A visual supports the reply and never replaces it. The five parts (2.1), `Need from M`, every question, and every evidence tag stay in the chat text, so M can act without opening the visual.
+- When a tool shows the visual outside the message text, the place in the reply or template where the diagram would go carries one line saying what the visual shows.
+- Every marked node carries a word: `changed`, `new`, or `fails here` (in ASCII: `<-- changed`, `<-- new`, `<-- fails here`). Colour or a highlight may be added, never used alone.
+- A visual must explain a relationship: a flow, a structure, a before and after, or a comparison of quantities. No decoration. A chart of quantities goes with the table this section requires, never in place of it.
+- An HTML page stays local or private. Publishing it anywhere public needs M's ask.
 
 ### 2.5 Asking M
 
