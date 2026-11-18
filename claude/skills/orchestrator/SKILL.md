@@ -51,3 +51,4 @@ Do not read these up front, except `references/modes.md`, which rule 5 reads fir
 | `references/full-audit.md` | review |
 | `references/security-audit/WORKFLOW.md` | review (security audit mode) |
 | `references/security-audit/` (every other file) | named by `WORKFLOW.md` and `references/rubric-code.md`; inside that folder, file names are relative to it |
+| the `design` skill (a separate skill, not a file here) | plan, build, review, when the work touches a user interface |

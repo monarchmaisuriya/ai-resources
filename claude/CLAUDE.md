@@ -148,6 +148,7 @@ Inside a review brief, a flag takes the finding format in the `review` playbook.
 - Every marked node carries a word: `changed`, `new`, or `fails here` (in ASCII: `<-- changed`, `<-- new`, `<-- fails here`). Colour or a highlight may be added, never used alone.
 - A visual must explain a relationship: a flow, a structure, a before and after, or a comparison of quantities. No decoration. A chart of quantities goes with the table this section requires, never in place of it.
 - An HTML page stays local or private. Publishing it anywhere public needs M's ask.
+- A rendered HTML visual is an interface. Before the first one of a session, load the `design` skill and read its `ADAPTATIONS.md` and its quality floor (`references/impeccable/reference/craft-floor.md` in that skill).
 
 ### 2.5 Asking M
 
@@ -321,6 +322,8 @@ The objective is not to appear right, produce more activity, or defend the first
 ## 7. Playbooks
 
 All seven playbooks live in one skill, `orchestrator`. Its `SKILL.md` is an index only: it maps each lane to one file, `references/<lane>.md`, and tells the agent to read that whole file before the first action. This file decides the lane; the index only loads the playbook.
+
+A second skill, `design`, holds interface design references (visual craft, UX reasoning, screen states, accessibility, patterns to refuse) copied from three other projects, with one file, `ADAPTATIONS.md`, that says where these core rules win. It adds knowledge, not a lane: the plan, build, and review playbooks name it when work touches a user interface, and M can call it by name.
 
 Shared files have one copy each in `orchestrator/references/`, so nothing needs to be kept in sync. The session mode rules are in `references/modes.md`. The ten principles are in `references/ten-principles.md`: start from the need; stands on its own; evidence over confidence; name the tradeoff; count the cost (effort, risk, blast radius); one home for everything; simplest thing that works; fail loudly, undo safely; provably done; kept true.
 

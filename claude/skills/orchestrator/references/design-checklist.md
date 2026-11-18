@@ -91,6 +91,7 @@ Applies when the change runs in a live system.
 Applies when the change touches a user interface or personal data. For a user interface, also state how each action is signposted, what feedback follows it, which actions can be undone, and what stops steps from happening in the wrong order.
 
 - User interface: the accessibility level targeted (for example WCAG 2.2 level AA) and how it is tested.
+- User interface: name the `design` skill files used for visual craft, screen states, and interface copy (the plan playbook says when to load that skill). This checklist itself covers system design only.
 - Personal data: what is collected, why, how long it is kept, and who can read it. Collect only what the purpose needs.
 
 ## 9. Experiments

@@ -84,6 +84,7 @@ Classify every changed file by risk tier before the passes. The tier decides rev
    - Changed validation or auth with unchanged tests: at least `must-verify`; `blocking` when the file is high tier.
 10. **Operations:** Check useful failure signals, metrics, traces, alert implications, resource bounds, cancellation, cleanup, feature rollout, and rollback. Login, one-time codes, public ingestion endpoints, and LLM calls have a rate or cost limit per caller.
 11. **Documentation:** Check public behavior, operational instructions, migration notes, and non-obvious invariants.
+12. **Interface:** Run when the diff changes a user interface. First load the `design` skill (a separate skill beside this one) and read its `ADAPTATIONS.md`, then the one source file its index names for the task. Check every screen state the change can reach, keyboard and contrast basics against the accessibility level the plan names (WCAG 2.2 level AA when none is named), that no content is invented, and two lists in that skill: the anti-pattern catalog in `references/intent/intent.md` and the Refuse list in `references/impeccable/reference/craft-floor.md`. Say which checks were done by reading and which by looking at a render.
 
 Do not claim a test, build, linter, security scan, or runtime behavior passed unless it was actually run and observed. Static inspection and execution evidence are separate.
 

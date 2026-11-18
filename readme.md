@@ -8,6 +8,7 @@ A collection of reusable instructions, skills, and working playbooks for AI-assi
 - **[Orchestrator skill](claude/skills/orchestrator/SKILL.md)** — an index that routes requests to the relevant playbook rather than loading every reference at once.
 - **[Reference library](claude/skills/orchestrator/references/)** — principles, design checklists, review rubrics, testing guidance, and a decision-record template.
 - **[Security audit resources](claude/skills/orchestrator/references/security-audit/README.md)** — audit workflows, domain-specific references, report schemas, and validation scripts.
+- **[Design skill](claude/skills/design/SKILL.md)**: interface design references copied unmodified from three open-source projects ([Hallmark](https://github.com/Nutlope/hallmark), MIT; [Impeccable](https://github.com/pbakaus/impeccable), Apache-2.0; [Design with Intent](https://github.com/ghaida/intent), CC0-1.0), with an [adaptations file](claude/skills/design/ADAPTATIONS.md) that says where the protocol's rules win. Each source folder carries its own licence file.
 - **[Session modes](claude/skills/orchestrator/references/modes.md)**: a once-per-session choice between `minimal` (the default) and `maximal` that sets how much detail and how many check rounds the playbooks spend.
 
 ## Working playbooks
@@ -28,5 +29,6 @@ A collection of reusable instructions, skills, and working playbooks for AI-assi
 2. Use the [orchestrator index](claude/skills/orchestrator/SKILL.md) to select the playbook that matches your task.
 3. Read that playbook and the references it requests before starting work.
 4. Keep the orchestrator directory structure intact so relative reference paths continue to resolve.
+5. Install the design skill folder beside the orchestrator skill, since the playbooks refer to it by name.
 
 This repository is a resource library, not a standalone application. Review instructions before incorporating them into an agent's configuration, and preserve any license notices included with individual resources.
