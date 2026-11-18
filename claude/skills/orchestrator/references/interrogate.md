@@ -82,7 +82,7 @@ Open every substantive message with these three fields, in this order:
 
 Put longer verified code excerpts and external evidence after those opening fields. Do not add a long recap before the question.
 
-When the challenged assumption depends on a flow, hierarchy, sequence, or causal chain, add one short ASCII diagram after the opening fields if it materially simplifies the question.
+When the challenged assumption depends on a flow, hierarchy, sequence, or causal chain, add one short diagram (its form comes from the visual ladder in core section 2.4) after the opening fields if it materially simplifies the question.
 
 - Mark the disputed or failing node.
 - Skip the diagram when the question is already clear.
@@ -141,7 +141,7 @@ Follow with H3 sections for:
 - **Riskiest assumption:** the assumption and its cheapest test.
 - **Premortem checks:** the checks or actions that came out of the premortem.
 - **Unexplored branches:** any of the four risks not covered, on an early stop or a short pass; omit when all four were covered.
-- **How it fits together:** when materially useful, an ASCII diagram of the surviving flow, hierarchy, sequence, or causal chain.
+- **How it fits together:** when materially useful, a diagram of the surviving flow, hierarchy, sequence, or causal chain.
 - **Next step:** for `build it`, a written design plan that starts from the brief (`references/plan.md`); for `do not build it`, nothing, or the alternative M chose; for `undecided`, the one question or test that would settle it and who will do it.
 
 End with `## In plain terms`: state what survived, what remains risky, and what happens next. Do not repeat `Need from M`.

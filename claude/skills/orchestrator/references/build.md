@@ -87,7 +87,7 @@ After the ship check passes, open with the H2 heading `## Implementation: <shipp
 
 Follow with H3 sections:
 
-- **Changed flow:** when the implementation changes a multi-step execution path, data flow, hierarchy, sequence, or causal chain, add one short ASCII diagram and mark the changed node. Omit it for simple local edits. Keep before-and-after comparisons as tables.
+- **Changed flow:** when the implementation changes a multi-step execution path, data flow, hierarchy, sequence, or causal chain, add one short diagram (its form comes from the visual ladder in core section 2.4) and mark the changed node. Omit it for simple local edits. Keep before-and-after comparisons as tables.
 - **What changed:** a file table with change and reason, then the behavior change in plain words. For a contract change, say whether it is compatible or breaking.
 - **Why this shape:** the owning-layer reason.
 - **Problem solved:** the outcome M confirmed, and for a user-facing change, the success metric and the date it will be checked.

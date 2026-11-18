@@ -236,9 +236,9 @@ Apply these prompts to any artifact when relevant:
 
 ## Output: review brief
 
-Use normal rendered Markdown. Never wrap the review, a finding, or criterion coverage in a code fence. Use a code fence only for an actual code excerpt, a command, literal output, or an alignment-sensitive ASCII diagram. Do not put sentence-length evidence in a table.
+Use normal rendered Markdown. Never wrap the review, a finding, or criterion coverage in a code fence. Use a code fence only for an actual code excerpt, a command, literal output, an alignment-sensitive ASCII diagram, or a Mermaid block where the surface renders it. Do not put sentence-length evidence in a table.
 
-Add one short ASCII diagram when it materially clarifies a flow, hierarchy, sequence, or causal chain behind a verdict. Put it after the opening summary or inside the relevant finding before detailed evidence. Mark the changed or failing node. Skip the diagram when headings and bullets are clearer. Keep side-by-side comparisons as tables.
+Add one short diagram (its form comes from the visual ladder in core section 2.4) when it materially clarifies a flow, hierarchy, sequence, or causal chain behind a verdict. Put it after the opening summary or inside the relevant finding before detailed evidence. Mark the changed or failing node. Skip the diagram when headings and bullets are clearer. Keep side-by-side comparisons as tables.
 
 Keep the brief short by removing repetition, not evidence:
 

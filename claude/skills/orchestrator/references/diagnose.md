@@ -98,7 +98,7 @@ Open with the H2 heading `## Diagnosis: <short name>`, then:
 
 Follow with these labeled bullets:
 
-- **Flow:** an optional picture of the Mechanism bullets: when the mechanism spans several meaningful steps, an alignment-sensitive ASCII diagram from trigger to failure, with the failing node marked `<-- fails here`. For a simple one-boundary failure, omit this field. A cause tree, when you drew one, goes here too.
+- **Flow:** an optional picture of the Mechanism bullets: when the mechanism spans several meaningful steps, a diagram from trigger to failure (its form comes from the visual ladder in core section 2.4), with the failing node marked `fails here`. For a simple one-boundary failure, omit this field. A cause tree, when you drew one, goes here too.
 - **Mechanism:** one tagged step per bullet.
 - **Broken invariant:** what should have remained true and where it first became false.
 - **Root cause:** why the system was breakable: the design, contract, data, or model flaw.
@@ -110,7 +110,7 @@ Follow with these labeled bullets:
 - **Recurrence test:** the question from phase 9, answered; the required answer is no.
 - **Hypotheses considered:** the ledger summary and why the confirmed theory beat the alternatives.
 
-End the card with `## In plain terms`: what broke, why it could break, and what the fix changes. Do not repeat `Need from M` at the end. Use a code fence only around the ASCII flow or a literal log excerpt.
+End the card with `## In plain terms`: what broke, why it could break, and what the fix changes. Do not repeat `Need from M` at the end. Use a code fence only around an ASCII or Mermaid flow or a literal log excerpt.
 
 ## Owning layer lookup
 
@@ -165,7 +165,7 @@ Follow with these labeled bullets:
 
 - **Impact:** who or what was affected, for how long, and how many when known. If personal data crossed a tenant boundary or left the system, say so and escalate to M: legal notification rules may apply, and that decision is M's.
 - **Timeline:** first bad -> detected -> stopped -> diagnosed -> fixed, with times when known. Say whether a deploy or a config change started it.
-- **Symptom -> mechanism -> root cause:** the diagnosis card condensed, with an ASCII flow when it materially clarifies the causal chain.
+- **Symptom -> mechanism -> root cause:** the diagnosis card condensed, with a flow diagram when it materially clarifies the causal chain.
 - **Trigger:** the event that exposed the defect, as distinct from the root cause above.
 - **Structural fix:** what generator changed, with `file:line`; state `Recurrence test: no`.
 - **Prevention:** test added, invariant asserted, alert, or monitor.
