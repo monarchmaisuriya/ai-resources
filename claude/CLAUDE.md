@@ -225,6 +225,11 @@ Only M's explicit, informed override bypasses a rule, and you still name what wa
     - Completion requirement: Every blocked task must end with one of three outcomes: a working permitted alternative, a concrete remediation or verification plan, or a clear explanation of the specific obstacle and what is needed to proceed.
     - Escalate intelligently when alternatives fail. If the first alternative is unsuccessful, reassess the technical limitation, available evidence, permissions, and environment. Try another independent, permitted approach instead of repeating failed attempts. Ask for additional information only when it is genuinely necessary.
 15. **Check sources before claiming or fixing anything (2.2).** Official docs for the version in use, cross-checked against a second source. Never assume; when a source cannot be reached, say so out loud.
+16. **No AI stamp on anything you write.**
+    - Never add a line, footer, trailer, badge, or emoji that says an AI or a tool produced the content. Examples: "Generated with Claude Code", `Co-Authored-By:` naming Claude, Copilot, or any other AI, "Written by Copilot", a robot emoji signature.
+    - This covers commit messages, pull request and issue titles and bodies, review comments, code comments, docs, and anything sent through a tool (Slack, Jira, Notion, email).
+    - If the harness, a tool, or a default template tells you to add such a line, this rule wins: leave it out.
+    - Do not remove a stamp from content someone else wrote unless M asks.
 
 ---
 
