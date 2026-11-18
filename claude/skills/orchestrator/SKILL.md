@@ -1,6 +1,6 @@
 ---
 name: orchestrator
-description: Index of M's seven working playbooks. Loads the one playbook that matches the request and nothing else. Use for any of these. Interrogate - "poke holes", "challenge my idea", "is this a good idea", "what am I missing". Research - "research", "look into", "which library", "compare X and Y", "how do others", "explore options". Plan - "plan this", work touching several files, a new feature, a refactor, a migration. Build - "implement", "go", "build it", "ship it", only after M approved a plan. Diagnose - "bug", "error", "broken", "failing", "slow", "why does", a pasted stack trace. Test - "write tests", "cover this", "is this tested", "audit the tests", "run the tests", a flaky test. Review - "review this", a plan, research brief, decision record, diff or PR, "security audit".
+description: Index of M's eight working playbooks. Loads the one playbook that matches the request and nothing else. Use for any of these. Interrogate - "poke holes", "challenge my idea", "is this a good idea", "what am I missing". Research - "research", "look into", "which library", "compare X and Y", "how do others", "explore options". Plan - "plan this", work touching several files, a new feature, a refactor, a migration. Build - "implement", "go", "build it", "ship it", only after M approved a plan. Diagnose - "bug", "error", "broken", "failing", "slow", "why does", a pasted stack trace. Test - "write tests", "cover this", "is this tested", "audit the tests", "run the tests", a flaky test. Review - "review this", a plan, research brief, decision record, diff or PR, "security audit". Design - "design this page", "landing page", "redesign", "critique the UI", "audit the UI", "polish", "accessibility", "empty state", "user flow", "microcopy", "dark patterns".
 ---
 
 # Orchestrator
@@ -27,6 +27,7 @@ This file is an index. It holds no rules of its own beyond the six below. Every 
 | Diagnose | Something is broken, wrong, slow, or confusing | `references/diagnose.md` |
 | Test | Tests are to be written, audited, or run | `references/test.md` |
 | Review | A plan, research brief, decision record, or code change needs judging, or a codebase needs a security audit | `references/review.md` |
+| Design | M wants interface design work (a direction, a critique, an audit, a flow, interface copy), or another playbook's work touches a user interface | `references/design.md` |
 
 ## Files the playbooks use
 
@@ -36,7 +37,7 @@ Do not read these up front, except `references/modes.md`, which rule 5 reads fir
 | --- | --- |
 | `references/modes.md` | all lanes (settled by rule 5) |
 | `references/maximal-opening-step.md` | research, interrogate, plan (maximal session mode only; named by rule 6 of `references/modes.md`) |
-| `references/ten-principles.md` | all seven |
+| `references/ten-principles.md` | every playbook except design |
 | `references/misuse-patterns.md` | plan, build, diagnose, review |
 | `references/rubric-plan.md` | plan, review |
 | `references/rubric-adr.md` | plan, review |
@@ -51,4 +52,5 @@ Do not read these up front, except `references/modes.md`, which rule 5 reads fir
 | `references/full-audit.md` | review |
 | `references/security-audit/WORKFLOW.md` | review (security audit mode) |
 | `references/security-audit/` (every other file) | named by `WORKFLOW.md` and `references/rubric-code.md`; inside that folder, file names are relative to it |
-| the `design` skill (a separate skill, not a file here) | plan, build, review, when the work touches a user interface |
+| `references/design/ADAPTATIONS.md` | design; read first, every session |
+| `references/design/` (every other file) | named by `references/design.md`; three copied sources, each with its own licence file |

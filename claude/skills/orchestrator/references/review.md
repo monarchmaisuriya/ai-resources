@@ -73,7 +73,7 @@ Outside a security audit, to understand unfamiliar code before reviewing it, bui
 The session that wrote an artifact knows things the artifact does not say, so it cannot see the gaps a cold reader would hit.
 
 - **Who reviews:** an artifact an agent wrote (plan, research brief, ADR, or code) is reviewed by one fresh `general-purpose` subagent.
-  - It gets only file paths: the artifact, this playbook (`references/review.md`) with the rubric and principle files it names, and the files the artifact links to; for a plan or code, the repo path; for a plan, also `references/design-checklist.md` and `references/misuse-patterns.md`; for code, also the exact diff command and the plan or description that says what the change is for (if none exists, the author writes one to a file first); when the artifact touches a user interface, also the absolute paths of the `design` skill's `SKILL.md` and `ADAPTATIONS.md`. Tell it the absolute path of the folder that holds `references/`, as the base for every `references/` path it meets, and tell it to skip any `## Independent check` or `## Review` section already in the artifact.
+  - It gets only file paths: the artifact, this playbook (`references/review.md`) with the rubric and principle files it names, and the files the artifact links to; for a plan or code, the repo path; for a plan, also `references/design-checklist.md` and `references/misuse-patterns.md`; for code, also the exact diff command and the plan or description that says what the change is for (if none exists, the author writes one to a file first); when the artifact touches a user interface, also `references/design.md` and `references/design/ADAPTATIONS.md`. Tell it the absolute path of the folder that holds `references/`, as the base for every `references/` path it meets, and tell it to skip any `## Independent check` or `## Review` section already in the artifact.
   - It never gets the conversation, M's request, or the author's reasoning.
   - The reviewer runs steps 3 to 6 and 8 and judges the artifact against the goal the artifact itself states, and returns its verdict and evidence for each criterion, its draft finding cards, what it reviewed and did not, and one sentence saying what the artifact is for as it reads it.
   - Its step 8 cards are drafts: the author then runs step 7 on every blocking and must-verify draft and applies its outcome (`stands`, `downgraded`, or `ruled out`) to the card.
@@ -215,7 +215,7 @@ Read the one rubric that matches the artifact, in full, before step 5. Each file
 | ADR | `references/rubric-adr.md` |
 | Code | `references/rubric-code.md` |
 
-The code rubric also uses `references/misuse-patterns.md`, `references/full-audit.md`, and the files in `references/security-audit/`. Its interface pass uses the `design` skill, a separate skill beside this one.
+The code rubric also uses `references/misuse-patterns.md`, `references/full-audit.md`, and the files in `references/security-audit/`. Its interface pass uses `references/design.md` and the files it names.
 
 ## Risk prompts
 

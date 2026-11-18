@@ -19,6 +19,7 @@ Core rules, loaded every session. Step-by-step playbooks live in one skill, `orc
 | **Build** | An approved plan exists | Rescan scope, implement part by part, ship check, done report | `build` |
 | **Diagnose** | Broken, wrong, slow, confusing, or flaky system behavior; any bug, error, or failure | Diagnosis card before any fix; structural fix only; RCA | `diagnose` |
 | **Test** | "Write tests", "cover this", "is this tested", "audit the tests", "run the tests", a flaky test | Cover (test list, red before green), audit (what the suite would miss), or verify (run and print evidence lines) | `test` |
+| **Design** | "Design this page", "landing page", "redesign", "critique or audit the UI", "polish", an accessibility audit, a user flow, interface copy | Findings or a design direction from the copied design sources, under the adaptations file; anything that changes code then goes to Plan | `design` |
 | **Review** | "Review this", a plan, ADR (architecture decision record), research brief, diff or PR (pull request), a security audit, or M asks for a full review after a code ship | Review of that artifact against the rubric for its type and the ten principles; structural, factual, and decision-quality findings, no style nits; work an agent wrote is reviewed by a fresh reader that sees only the files, never this conversation | `review` |
 
 Before the first action in any lane except Answer, load the `orchestrator` skill and read that lane's file, `references/<lane>.md`, in full. The table's summary is not enough to act on. The skill's rule 5 also settles the session mode, `minimal` (the default) or `maximal`, once per session; `references/modes.md` in the skill says what each changes.
@@ -28,6 +29,7 @@ Lanes chain:
 - Research or Interrogate -> Plan -> Build (tests are written inside each part) -> fresh-reader check (offered) or Review (when M asks).
 - Build and Diagnose write their own tests (Build by its short form of cover mode, Diagnose by its Verify phase), and open the `test` playbook for the full rules; use the `test` playbook directly when M asks for tests, an audit, or a run.
 - Diagnose -> Plan when the fix is big.
+- Design -> Plan -> Build when the design work changes code. Plan, Build, and Review read the `design` playbook themselves when their work touches a user interface.
 - When unsure, pick the heavier lane.
 - Never skip a lane to save time.
 - A "trivial" ask that touches a shared contract, schema, core file, or this protocol is not trivial: route to Plan.
@@ -148,7 +150,7 @@ Inside a review brief, a flag takes the finding format in the `review` playbook.
 - Every marked node carries a word: `changed`, `new`, or `fails here` (in ASCII: `<-- changed`, `<-- new`, `<-- fails here`). Colour or a highlight may be added, never used alone.
 - A visual must explain a relationship: a flow, a structure, a before and after, or a comparison of quantities. No decoration. A chart of quantities goes with the table this section requires, never in place of it.
 - An HTML page stays local or private. Publishing it anywhere public needs M's ask.
-- A rendered HTML visual is an interface. Before the first one of a session, load the `design` skill and read its `ADAPTATIONS.md` and its quality floor (`references/impeccable/reference/craft-floor.md` in that skill).
+- A rendered HTML visual is an interface. Before the first one of a session, read the `design` playbook (`references/design.md` in the `orchestrator` skill), its `references/design/ADAPTATIONS.md`, and the quality floor it names.
 
 ### 2.5 Asking M
 
@@ -321,9 +323,9 @@ The objective is not to appear right, produce more activity, or defend the first
 
 ## 7. Playbooks
 
-All seven playbooks live in one skill, `orchestrator`. Its `SKILL.md` is an index only: it maps each lane to one file, `references/<lane>.md`, and tells the agent to read that whole file before the first action. This file decides the lane; the index only loads the playbook.
+All eight playbooks live in one skill, `orchestrator`. Its `SKILL.md` is an index only: it maps each lane to one file, `references/<lane>.md`, and tells the agent to read that whole file before the first action. This file decides the lane; the index only loads the playbook.
 
-A second skill, `design`, holds interface design references (visual craft, UX reasoning, screen states, accessibility, patterns to refuse) copied from three other projects, with one file, `ADAPTATIONS.md`, that says where these core rules win. It adds knowledge, not a lane: the plan, build, and review playbooks name it when work touches a user interface, and M can call it by name.
+The `design` playbook is different in one way: it holds no rules of its own. It routes to interface design references copied unmodified from three other projects, under `references/design/`, and one file, `references/design/ADAPTATIONS.md`, says where these core rules win.
 
 Shared files have one copy each in `orchestrator/references/`, so nothing needs to be kept in sync. The session mode rules are in `references/modes.md`. The ten principles are in `references/ten-principles.md`: start from the need; stands on its own; evidence over confidence; name the tradeoff; count the cost (effort, risk, blast radius); one home for everything; simplest thing that works; fail loudly, undo safely; provably done; kept true.
 
@@ -336,3 +338,4 @@ Shared files have one copy each in `orchestrator/references/`, so nothing needs 
 | `diagnose` | stop the damage first, reproduce, trace, hypothesis ledger, diagnosis card, owning layer, structural fix, RCA with owned follow-ups |
 | `test` | three modes (cover, audit, verify), test list, level and doubles choice, red before green, manual mutant probe, the `VERIFY:` evidence line, a root-cause method for flaky tests |
 | `review` | review of a plan, ADR, research brief, or code change: one rubric per artifact type, the ten principles, a fresh reviewer, author responses, rounds up to the session mode's limit, review brief; security audit mode |
+| `design` | interface design: which copied source to read for which task (page craft, critique and audit, UX reasoning, states, accessibility, patterns to refuse), the adaptations file, sources and licences |
